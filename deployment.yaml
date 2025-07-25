@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: udayvarma
-        image: 'https://410129828206.dkr.ecr.us-west-2.amazonaws.com'/udayvarma:latest
+        image: 'https://410129828206.dkr.ecr.us-west-2.amazonaws.com'/udayvarma77:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
