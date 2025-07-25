@@ -13,25 +13,25 @@ spec:
         app: udayvarma
     spec:
       containers:
-      - name: udayvarma
-        image: '410129828206.dkr.ecr.us-west-2.amazonaws.com/udayvarma77
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-# service type loadbalancer       
+        - name: udayvarma
+          image: 410129828206.dkr.ecr.us-west-2.amazonaws.com/udayvarma77:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+
+---
+
 apiVersion: v1
 kind: Service
 metadata:
+  name: udayvarma
   labels:
     app: udayvarma
-    k8s-app: udayvarma
-  name: udayvarma
 spec:
-  ports:
-  - name: http
-    port: 80
-    protocol: TCP
-    targetPort: 8080
-  type: LoadBalancer
   selector:
     app: udayvarma
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
